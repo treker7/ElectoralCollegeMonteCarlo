@@ -80,8 +80,8 @@ def main():
     print(f"Probability of tie = {100 * probabilityTie:.2f}%")
     print()
 
-    print(f"Median electoral college vote for red wins = {medianElectoralPointsBlueWin}")
-    print(f"Median electoral college vote for blue wins = {medianElectoralPointsRedWin}")
+    print(f"Median electoral college vote for red wins = {medianElectoralPointsRedWin}")
+    print(f"Median electoral college vote for blue wins = {medianElectoralPointsBlueWin}")
 
     return 0
 
