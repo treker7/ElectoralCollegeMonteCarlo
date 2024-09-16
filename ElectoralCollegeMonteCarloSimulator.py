@@ -60,11 +60,11 @@ def main():
     probabilityRedWin = len(list(filter(lambda s: s.isRedWin(), simulations))) / len(simulations)
     probabilityBlueWin = 1 - probabilityRedWin
 
-    print(f"Expected value of red points = {simulator.getExpectedPointsRed()}.")
-    print(f"Expected value of blue points = {simulator.getExpectedPointsBlue()}.")
+    print(f"Expected value of red points = {simulator.getExpectedPointsRed()}")
+    print(f"Expected value of blue points = {simulator.getExpectedPointsBlue()}")
 
-    print(f"Probability red win = {100 * probabilityRedWin}%.")
-    print(f"Probability blue win = {100 * probabilityBlueWin}%.")
+    print(f"Probability red win = {100 * probabilityRedWin}%")
+    print(f"Probability blue win = {100 * probabilityBlueWin}%")
 
     return 0
 
