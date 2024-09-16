@@ -42,17 +42,21 @@ class ElectoralCollegeMonteCarloSimulator():
         return monteCarloSimulations
 
 def main():
-    if len(sys.argv) != 2:
-        print(f"Usage: {sys.argv[0]} <num_iterations>")
+    if (len(sys.argv) < 2) or (len(sys.argv) > 3):
+        print(f"Usage: {sys.argv[0]} <num_iterations> [-a]")
         return -1
 
     numIterations = int(sys.argv[1])
+    simulateAllStates = (len(sys.argv) == 3) and (sys.argv[2] == "-a")
 
-    print("<<< Electoral College Monte Carlo Simulations >>>\n")
-    simulator = ElectoralCollegeMonteCarloSimulator(BATTLEGROUND_ELECTORAL_COLLEGE_STATES,
-                                                    CONSENSUS_ELECTORAL_POINTS_RED, CONSENSUS_ELECTORAL_POINTS_BLUE)
+    if simulateAllStates:
+        simulator = ElectoralCollegeMonteCarloSimulator(ALL_ELECTORAL_COLLEGE_STATES)
+    else:
+        simulator = ElectoralCollegeMonteCarloSimulator(BATTLEGROUND_ELECTORAL_COLLEGE_STATES, CONSENSUS_ELECTORAL_POINTS_RED, CONSENSUS_ELECTORAL_POINTS_BLUE)
     
+    print("<<< Electoral College Monte Carlo Simulations >>>\n")
     simulations = simulator.runMonteCarloSimulations(numIterations)
+
     probabilityRedWin = len(list(filter(lambda s: s.isRedWin(), simulations))) / len(simulations)
     probabilityBlueWin = 1 - probabilityRedWin
 
