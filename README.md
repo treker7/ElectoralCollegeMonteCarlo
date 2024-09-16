@@ -12,8 +12,8 @@ Usage: ElectoralCollegeMonteCarloSimulator.py <num_iterations>
 
 Expected value of red points = 266.84
 Expected value of blue points = 271.16
-Probability red win = 45.286%
-Probability blue win = 54.714%
+Probability red win = 45.29%
+Probability blue win = 54.71%
 
 > 
 ```
