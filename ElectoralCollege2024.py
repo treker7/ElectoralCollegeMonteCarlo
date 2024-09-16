@@ -5,6 +5,8 @@ class ElectoralCollegeState:
         self.probabilityRed = probabilityRed
 
 
+# Odds taken from Polymarket - https://polymarket.com/elections
+
 CONSENSUS_ELECTORAL_POINTS_RED = 219
 CONSENSUS_ELECTORAL_POINTS_BLUE = 226
 
