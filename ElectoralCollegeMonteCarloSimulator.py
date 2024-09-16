@@ -72,8 +72,8 @@ def main():
     probabilityBlueWin = len(simulationsBlueWin) / len(simulations)
     probabilityTie = len(simulationsTie) / len(simulations)
 
-    medianElectoralPointsRedWin = statistics.median([s.redElectoralPoints for s in simulationsRedWin])
-    medianElectoralPointsBlueWin = statistics.median([s.blueElectoralPoints for s in simulationsBlueWin])
+    medianElectoralPointsRedWin = statistics.median([s.redElectoralPoints for s in simulationsRedWin]) if (len(simulationsRedWin) > 0) else 0
+    medianElectoralPointsBlueWin = statistics.median([s.blueElectoralPoints for s in simulationsBlueWin]) if (len(simulationsBlueWin) > 0) else 0
 
     print(f"Probability of red win = {100 * probabilityRedWin:.2f}%")
     print(f"Probability of blue win = {100 * probabilityBlueWin:.2f}%")
