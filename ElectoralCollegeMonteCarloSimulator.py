@@ -63,8 +63,8 @@ def main():
     print(f"Expected value of red points = {simulator.getExpectedPointsRed()}.")
     print(f"Expected value of blue points = {simulator.getExpectedPointsBlue()}.")
 
-    print(f"Probablility red win = {100 * probabilityRedWin}%.")
-    print(f"Probablility blue win = {100 * probabilityBlueWin}%.")
+    print(f"Probability red win = {100 * probabilityRedWin}%.")
+    print(f"Probability blue win = {100 * probabilityBlueWin}%.")
 
     return 0
 
