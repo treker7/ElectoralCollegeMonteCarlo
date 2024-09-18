@@ -118,12 +118,8 @@ def main():
     print(f"Probability of tie = {100 * tie_probability:.2f}%")
     print()
 
-    print(
-        f"Median electoral college vote for red wins = {median_red_win_electoral_points}"
-    )
-    print(
-        f"Median electoral college vote for blue wins = {median_blue_win_electoral_points}"
-    )
+    print(f"Median electoral college vote for red wins = {median_red_win_electoral_points}")
+    print(f"Median electoral college vote for blue wins = {median_blue_win_electoral_points}")
 
 
 if __name__ == "__main__":
