@@ -4,13 +4,8 @@ import statistics
 from dataclasses import dataclass
 from typing import Generator
 
-from electoral_college_2024 import (
-    ALL_ELECTORAL_COLLEGE_STATES,
-    BATTLEGROUND_ELECTORAL_COLLEGE_STATES,
-    CONSENSUS_ELECTORAL_POINTS_BLUE,
-    CONSENSUS_ELECTORAL_POINTS_RED,
-    ElectoralCollegeState,
-)
+from data import ELECTORAL_COLLEGES
+from electoral_college import State
 
 
 @dataclass
@@ -34,7 +29,7 @@ class ElectoralCollegeResult:
 class Simulator:
     def __init__(
         self,
-        states: list[ElectoralCollegeState],
+        states: list[State],
         consensus_points_red: int = 0,
         consensus_points_blue: int = 0,
     ):
@@ -75,18 +70,19 @@ class Simulator:
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("year", type=int, choices=ELECTORAL_COLLEGES)
     parser.add_argument("num_iterations", type=int)
     parser.add_argument("-a", "--allstates", action="store_true")
-
     args = parser.parse_args()
 
+    electoral_college = ELECTORAL_COLLEGES[args.year]
     if args.allstates:
-        simulator = Simulator(ALL_ELECTORAL_COLLEGE_STATES)
+        simulator = Simulator(electoral_college.states)
     else:
         simulator = Simulator(
-            BATTLEGROUND_ELECTORAL_COLLEGE_STATES,
-            CONSENSUS_ELECTORAL_POINTS_RED,
-            CONSENSUS_ELECTORAL_POINTS_BLUE,
+            electoral_college.battleground_states,
+            electoral_college.red_consensus_points,
+            electoral_college.blue_consensus_points,
         )
 
     print("<<< Electoral College Monte Carlo Simulations >>>\n")
