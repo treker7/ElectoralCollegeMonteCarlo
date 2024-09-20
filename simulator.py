@@ -75,7 +75,7 @@ def main():
     parser.add_argument("-a", "--allstates", action="store_true")
     args = parser.parse_args()
 
-    electoral_college = ELECTORAL_COLLEGES[args.year]
+    electoral_college = ELECTORAL_COLLEGES[args.year]    
     if args.allstates:
         simulator = Simulator(electoral_college.states)
     else:
@@ -88,12 +88,8 @@ def main():
     print("<<< Electoral College Monte Carlo Simulations >>>\n")
     simulations = list(simulator.generate_simulations(args.num_iterations))
 
-    red_win_simulations = [
-        simulation for simulation in simulations if simulation.is_red_win
-    ]
-    blue_win_simulations = [
-        simulation for simulation in simulations if simulation.is_blue_win
-    ]
+    red_win_simulations = [simulation for simulation in simulations if simulation.is_red_win]
+    blue_win_simulations = [simulation for simulation in simulations if simulation.is_blue_win]
     tie_simulations = [simulation for simulation in simulations if simulation.is_tie]
 
     red_win_probability = len(red_win_simulations) / len(simulations)
@@ -106,9 +102,7 @@ def main():
         else 0
     )
     median_blue_win_electoral_points = (
-        statistics.median(
-            [simulation.blue_points for simulation in blue_win_simulations]
-        )
+        statistics.median([simulation.blue_points for simulation in blue_win_simulations])
         if blue_win_simulations
         else 0
     )
