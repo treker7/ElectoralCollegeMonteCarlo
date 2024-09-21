@@ -1,5 +1,5 @@
 # Electoral College Monte Carlo Simulator
-Simulates the 2024 presidential election with Monte Carlo simulations.
+Simulates the 2024 presidential election with Monte Carlo methods.
 
 ## Example:
 
